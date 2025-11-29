@@ -1,0 +1,27 @@
+balance = 5000
+pin = 1234
+
+attempts = 0
+
+while attempts < 3:
+
+    user_pin = int(input("Enter your Pin: "))
+
+    if user_pin == pin:
+        print("Your balance is:", balance)
+        amount = int(input("Enter amount to withdraw: "))
+
+        if amount > balance:
+            print("Insufficient balance!")
+        else:
+            balance -= amount
+            print("Congrats! Amount received.")
+            print("New balance is:", balance)
+        break
+
+    else:
+        attempts += 1
+        print("PIN incorrect! Attempts left:", 3 - attempts)
+
+if attempts == 3:
+    print("Account Blocked! Too many incorrect attempts.")
